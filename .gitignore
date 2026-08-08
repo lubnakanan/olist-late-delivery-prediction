@@ -1,0 +1,15 @@
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# Data files (too large for GitHub, download from Kaggle instead)
+data/
+*.csv
+
+# Environment / secrets
+.env
+
+# OS junk
+.DS_Store
+Thumbs.db
