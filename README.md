@@ -70,6 +70,21 @@ for modeling.
    ```
    docker exec -it olist_postgres psql -U olist_user -d olist_db
    ```
+## Verification
+
+Confirmed the join between `orders` and `customers` works correctly:
+
+​sql:
+
+SELECT o.order_id, o.order_status, c.customer_city, c.customer_state
+
+FROM orders o
+
+JOIN customers c ON o.customer_id = c.customer_id
+
+LIMIT 10;
+​```
+<img width="932" height="737" alt="image" src="https://github.com/user-attachments/assets/5588949b-a8c5-4d7e-a799-d9ad9c46b1b0" />
 
 ## Next Steps (future tasks)
 
