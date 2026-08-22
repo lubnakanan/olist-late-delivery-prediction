@@ -74,18 +74,24 @@ for modeling.
 
 Confirmed the join between `orders` and `customers` works correctly:
 
-​sql:
-
+​```sql
 SELECT o.order_id, o.order_status, c.customer_city, c.customer_state
-
 FROM orders o
-
 JOIN customers c ON o.customer_id = c.customer_id
-
 LIMIT 10;
+```
 ​
 
 <img width="932" height="737" alt="image" src="https://github.com/user-attachments/assets/5588949b-a8c5-4d7e-a799-d9ad9c46b1b0" />
+
+
+## Task 1 Completion Checklist
+
+- [x] Database running locally with data inside (PostgreSQL via Docker)
+- [x] Can query the tables and join them (see Verification section)
+- [x] Understand the tables and relationships between them (see above)
+- [x] Understand the problem we are trying to solve (see Business Problem)
+
 
 ## Next Steps 
 
