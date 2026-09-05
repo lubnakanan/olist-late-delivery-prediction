@@ -1,4 +1,4 @@
-# Olist Late Delivery Prediction — Task 1: Data Ingestion
+# Olist Late Delivery Prediction — Data Ingestion
 
 ## Business Problem
 
@@ -23,7 +23,7 @@ The data is relational, not a single ready-made ML table — it needs to be
 loaded into a proper database and joined/aggregated before it can be used
 for modeling.
 
-## What I Did (Task 1)
+## What I Did 
 
 1. **Set up PostgreSQL locally using Docker** (`docker-compose.yml`) instead
    of a native install, to keep the environment isolated and reproducible.
@@ -70,8 +70,28 @@ for modeling.
    ```
    docker exec -it olist_postgres psql -U olist_user -d olist_db
    ```
+## Verification
 
-## Next Steps (future tasks)
+Confirmed the join between `orders` and `customers` works correctly:
+
+```sql
+SELECT o.order_id, o.order_status, c.customer_city, c.customer_state
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+LIMIT 10;
+```
+
+<img width="932" height="737" alt="image" src="https://github.com/user-attachments/assets/5588949b-a8c5-4d7e-a799-d9ad9c46b1b0" />
+
+## Task 1 Completion Checklist
+
+- [x] Database running locally with data inside (PostgreSQL via Docker)
+- [x] Can query the tables and join them (see Verification section)
+- [x] Understand the tables and relationships between them (see above)
+- [x] Understand the problem we are trying to solve (see Business Problem)
+
+
+## Next Steps 
 
 - Exploratory Data Analysis (EDA)
 - Feature engineering (aggregating items/payments per order, avoiding leakage)
