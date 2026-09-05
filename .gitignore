@@ -13,3 +13,14 @@ data/
 # OS junk
 .DS_Store
 Thumbs.db
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Large intermediate CSV artifacts (reproducible by running the notebooks)
+artifacts/*.csv
+
+# Keep small useful artifacts (model, results, chart)
+!artifacts/*.pkl
+!artifacts/*.txt
+!artifacts/*.png

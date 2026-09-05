@@ -1,0 +1,27 @@
+Model: RandomForestClassifier(n_estimators=200, max_depth=5, class_weight='balanced')
+
+Baseline (always predict not-late):
+  Val recall (late)=0.00, precision (late)=0.00
+
+Tuned model on validation set:
+              precision    recall  f1-score   support
+
+           0       0.95      0.91      0.93     13697
+           1       0.07      0.13      0.09       773
+
+    accuracy                           0.86     14470
+   macro avg       0.51      0.52      0.51     14470
+weighted avg       0.90      0.86      0.88     14470
+
+Tuned model on test set (final, touched once):
+              precision    recall  f1-score   support
+
+           0       0.93      0.98      0.96     13514
+           1       0.02      0.01      0.01       957
+
+    accuracy                           0.92     14471
+   macro avg       0.48      0.50      0.48     14471
+weighted avg       0.87      0.92      0.90     14471
+
+
+Key finding: Test performance is much weaker than validation, likely due to an unusual delay spike in Feb-Mar 2018 (end of training period) that the model overfit to. Model does not generalize well across time. Future work: investigate the anomaly, add richer features (seller history, shipping distance, carrier data).
