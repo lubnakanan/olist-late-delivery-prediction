@@ -1,10 +1,8 @@
-version: "3.8"
-
 services:
   postgres:
     image: postgres:16
     container_name: olist_postgres
-    restart: always
+    restart: unless-stopped
     environment:
       POSTGRES_USER: olist_user
       POSTGRES_PASSWORD: olist_pass
@@ -14,5 +12,19 @@ services:
     volumes:
       - olist_pgdata:/var/lib/postgresql/data
 
+  api:
+    image: olist-late-delivery-api:latest
+    container_name: olist_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - olist_artifacts:/app/artifacts
+      - olist_logs:/app/logs
+    depends_on:
+      - postgres
+
 volumes:
   olist_pgdata:
+  olist_artifacts:
+  olist_logs:

@@ -1,0 +1,31 @@
+model:
+  path: "models/trained_model.pkl"
+  version: "1.0.0"
+
+transformers:
+  encoder_path: "models/encoder.pkl"
+  imputer_path: "models/imputer.pkl"
+
+features:
+  feature_list_path: "models/feature_list.txt"
+  numeric_features:
+    - n_items
+    - total_price
+    - total_freight
+    - avg_price
+    - n_unique_sellers
+    - n_unique_products
+    - total_payment_value
+    - n_payment_installments
+    - n_payment_methods
+  categorical_features:
+    - customer_state
+    - purchase_month
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+
+logging:
+  level: "INFO"
+  log_file: "logs/service.log"

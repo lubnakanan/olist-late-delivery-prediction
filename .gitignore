@@ -24,3 +24,4 @@ artifacts/*.csv
 !artifacts/*.pkl
 !artifacts/*.txt
 !artifacts/*.png
+/models
